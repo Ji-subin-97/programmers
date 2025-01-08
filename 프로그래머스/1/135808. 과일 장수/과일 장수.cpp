@@ -6,14 +6,27 @@ using namespace std;
 
 int solution(int k, int m, vector<int> score) {
     int answer = 0;
-    priority_queue<int> pq;
-    
-    for(int i=0; i<score.size(); i++)
-        pq.push(score[i]);
-    while(pq.size() >= m) {
-        for(int i=0; i<m-1; i++) pq.pop();
-        answer += pq.top() * m;
-        pq.pop();
+    int boxCount = 0;
+    size_t scoreSize = score.size(); 
+
+    priority_queue<int> que;
+    for(int i = 0; i < score.size(); i++) {
+        que.push(score[i]);
     }
+
+    size_t index = 0;
+    boxCount = scoreSize / m;
+    while(boxCount > 0) { 
+        if(index == m) {
+            answer += k * m;
+            index = 0;
+            boxCount--;
+        }
+
+        k = que.top();
+        que.pop();
+        index++;
+    }
+
     return answer;
 }
