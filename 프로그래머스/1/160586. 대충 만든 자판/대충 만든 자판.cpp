@@ -8,7 +8,7 @@ vector<int> solution(vector<string> keymap, vector<string> targets) {
     vector<int> answer;
     unordered_map<char, int> tempMap;
     
-    for(string keymapItem : keymap)
+    for(const string& keymapItem : keymap)
     {
         for(int i = 0; i < keymapItem.length(); i++)
         {
@@ -24,7 +24,7 @@ vector<int> solution(vector<string> keymap, vector<string> targets) {
         }
     }
     
-    for(string targetItem : targets)
+    for(const string& targetItem : targets)
     {
         int result = 0;
         
