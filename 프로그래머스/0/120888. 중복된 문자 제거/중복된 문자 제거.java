@@ -4,7 +4,7 @@ class Solution {
         char[] ca = my_string.toCharArray();
         
         for(char c : ca) {
-            if(sb.indexOf(c + "") == -1) sb.append(c + "");
+            if(sb.indexOf(c + "") == -1) sb.append(c);
         }
         
         return sb.toString();
